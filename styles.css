@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
-/* Reset y Estilos Globales */
+/* 1. RESET Y ESTILOS GLOBALES */
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +9,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    /* Fondo con tu degradado original */
     background: linear-gradient(to bottom, #75AADB, #FFD700);
     background-attachment: fixed;
     color: #333333;
@@ -21,7 +22,7 @@ h1, h2, h3, h4 {
     font-weight: 600;
 }
 
-/* Barra de Anuncios */
+/* 2. BARRA DE ANUNCIOS (Dorado con texto azul) */
 .announcement-bar {
     background-color: #F7D358;
     color: #002a52;
@@ -33,7 +34,7 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
 }
 
-/* Encabezado */
+/* 3. ENCABEZADO (Azul Marino y Dorado) */
 .header {
     background-color: #002a52;
     padding: 1.5rem 2rem;
@@ -71,6 +72,7 @@ h1, h2, h3, h4 {
     margin-top: 2px;
 }
 
+/* 4. NAVEGACIÓN */
 .navbar ul {
     list-style: none;
     display: flex;
@@ -90,7 +92,7 @@ h1, h2, h3, h4 {
     color: #FFD700;
 }
 
-/* Main Content */
+/* 5. CONTENIDO PRINCIPAL */
 .main-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -108,7 +110,13 @@ h1, h2, h3, h4 {
     margin-bottom: 10px;
 }
 
-/* Grid de Productos */
+.section-header p {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* 6. GRID DE PRODUCTOS */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -132,13 +140,16 @@ h1, h2, h3, h4 {
 
 .card img {
     width: 100%;
+    height: auto;
     border-radius: 5px;
     margin-bottom: 15px;
 }
 
 .card h3 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 600;
+    color: #333;
     margin-bottom: 5px;
 }
 
@@ -156,7 +167,7 @@ h1, h2, h3, h4 {
     margin-bottom: 15px;
 }
 
-/* Botones */
+/* 7. BOTONES (Celestes) */
 .btn-principal {
     background-color: #75AADB;
     color: #FFFFFF;
@@ -171,13 +182,14 @@ h1, h2, h3, h4 {
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
+    margin-top: auto;
 }
 
 .btn-principal:hover {
     background-color: #4A90E2;
 }
 
-/* Carrito y Formulario */
+/* 8. CARRITO Y FORMULARIO (Cajas Blancas) */
 .carrito, .boutique-form {
     background: #FFFFFF;
     padding: 2.5rem;
@@ -198,6 +210,16 @@ h1, h2, h3, h4 {
     height: 1px;
     background-color: #EAEAEA;
     margin: 20px 0;
+}
+
+#mensaje-vacio {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.carrito ul {
+    list-style: none;
 }
 
 .carrito li {
@@ -238,89 +260,6 @@ h1, h2, h3, h4 {
     margin-top: 10px;
 }
 
-.nota-envio {
-    text-align: right;
-    font-size: 0.7rem;
-    color: #888;
-}
-
-/* Formulario */
+/* 9. FORMULARIO DE CONTACTO */
 .form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #75AADB;
-    border-radius: 5px;
-    background-color: #FAFAFA;
-}
-
-.resumen-visual {
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: #f9f9f9;
-    border-radius: 5px;
-}
-
-.resumen-visual ul {
-    list-style: none;
-    font-size: 0.85rem;
-}
-
-/* Alertas */
-.alerta {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #F7D358;
-    color: #002a52;
-    padding: 12px 25px;
-    font-weight: 600;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 9999;
-}
-
-.alerta.mostrar {
-    opacity: 1;
-}
-
-.boutique-footer {
-    background-color: #002a52;
-    color: #FFD700;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
-}
-
-.whatsapp-float {
-  position: fixed;
-  width: 55px;
-  height: 55px;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-}
-
-.whatsapp-float img {
-  width: 32px;
-}
+    margin-bottom: 1
