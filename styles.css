@@ -9,7 +9,6 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* Tu degradado original con fixed para que no se deforme al bajar */
     background: linear-gradient(to bottom, #75AADB, #FFD700);
     background-attachment: fixed;
     color: #333333;
@@ -22,10 +21,10 @@ h1, h2, h3, h4 {
     font-weight: 600;
 }
 
-/* Barra de Anuncios - Tus colores */
+/* Barra de Anuncios */
 .announcement-bar {
-    background-color: #F7D358; /* Amarillo/Dorado de tus alertas */
-    color: #002a52; /* Azul marino */
+    background-color: #F7D358;
+    color: #002a52;
     text-align: center;
     padding: 8px 15px;
     font-size: 0.75rem;
@@ -34,9 +33,9 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
 }
 
-/* Encabezado Boutique - Tus colores */
+/* Encabezado */
 .header {
-    background-color: #002a52; /* Azul marino original */
+    background-color: #002a52;
     padding: 1.5rem 2rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     position: sticky;
@@ -61,18 +60,17 @@ h1, h2, h3, h4 {
     font-size: 2rem;
     letter-spacing: 3px;
     margin: 0;
-    color: #FFD700; /* Dorado */
+    color: #FFD700;
 }
 
 .titulo p {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #FFFFFF; /* Blanco */
+    color: #FFFFFF;
     margin-top: 2px;
 }
 
-/* Navegación */
 .navbar ul {
     list-style: none;
     display: flex;
@@ -89,7 +87,7 @@ h1, h2, h3, h4 {
 }
 
 .navbar a:hover {
-    color: #FFD700; /* Dorado al pasar el mouse */
+    color: #FFD700;
 }
 
 /* Main Content */
@@ -106,15 +104,8 @@ h1, h2, h3, h4 {
 
 .section-header h2 {
     font-size: 2.2rem;
-    color: #002a52; /* Contraste fuerte contra el fondo celeste */
+    color: #002a52;
     margin-bottom: 10px;
-    text-shadow: 1px 1px 5px rgba(255,255,255,0.5); /* Ayuda a la lectura */
-}
-
-.section-header p {
-    font-size: 1rem;
-    color: #000;
-    font-weight: 500;
 }
 
 /* Grid de Productos */
@@ -125,56 +116,47 @@ h1, h2, h3, h4 {
 }
 
 .card {
-    background: #FFFFFF; /* Cajas blancas para que resalten sobre el degradado */
+    background: #FFFFFF;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     text-align: center;
     padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    margin-bottom: 15px;
     border-radius: 5px;
+    margin-bottom: 15px;
 }
 
 .card h3 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    color: #333;
     margin-bottom: 5px;
-    text-transform: capitalize;
 }
 
 .calidad {
     font-size: 0.75rem;
-    color: #75AADB; /* Tu color original */
+    color: #75AADB;
     font-weight: bold;
     margin-bottom: 10px;
-}
-
-.precio-container {
-    margin-bottom: 15px;
 }
 
 .precio-nuevo {
     font-size: 1.2rem;
     font-weight: 600;
     color: #002a52;
+    margin-bottom: 15px;
 }
 
-/* Botones con tus colores originales */
+/* Botones */
 .btn-principal {
     background-color: #75AADB;
     color: #FFFFFF;
@@ -189,34 +171,27 @@ h1, h2, h3, h4 {
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
-    margin-top: auto;
 }
 
 .btn-principal:hover {
     background-color: #4A90E2;
 }
 
-/* Carrito y Formulario (Contenedores blancos limpios) */
-.carrito-container {
-    display: flex;
-    justify-content: center;
-    margin: 4rem 0;
-}
-
+/* Carrito y Formulario */
 .carrito, .boutique-form {
     background: #FFFFFF;
     padding: 2.5rem;
     width: 100%;
     max-width: 600px;
+    margin: 2rem auto;
     border-radius: 10px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-.carrito h2 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+.carrito h2, .resumen-visual h3 {
     color: #002a52;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 .divisor {
@@ -225,64 +200,42 @@ h1, h2, h3, h4 {
     margin: 20px 0;
 }
 
-#mensaje-vacio {
-    text-align: center;
-    color: #888;
-    font-size: 0.9rem;
-    margin: 20px 0;
-}
-
-.carrito ul {
-    list-style: none;
-}
-
 .carrito li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    font-size: 0.9rem;
     border-bottom: 1px dashed #EEE;
-}
-
-.controles-carrito {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 0.9rem;
 }
 
 .btn-control {
     background: #75AADB;
-    border: none;
     color: #FFF;
+    border: none;
     width: 25px;
     height: 25px;
-    cursor: pointer;
     border-radius: 50%;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.btn-control:hover {
-    background: #4A90E2;
+    cursor: pointer;
+    margin: 0 2px;
 }
 
 .btn-eliminar {
     background: transparent;
     border: none;
     color: #d9534f;
+    text-decoration: underline;
     cursor: pointer;
     font-size: 0.8rem;
-    text-decoration: underline;
-    font-weight: 600;
+    margin-left: 10px;
 }
 
 #total {
     text-align: right;
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 5px;
     color: #002a52;
+    margin-top: 10px;
 }
 
 .nota-envio {
@@ -291,11 +244,7 @@ h1, h2, h3, h4 {
     color: #888;
 }
 
-/* Estilos de Formulario */
-.boutique-form {
-    margin: 0 auto;
-}
-
+/* Formulario */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -305,30 +254,27 @@ h1, h2, h3, h4 {
     margin-bottom: 5px;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #333;
 }
 
-.form-group input,
-.form-group textarea {
+.form-group input, .form-group textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #75AADB;
     border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
     background-color: #FAFAFA;
-    transition: border-color 0.3s;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #002a52;
-    background-color: #FFF;
+.resumen-visual {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 5px;
 }
 
-.resumen-oculto {
-    display: none;
+.resumen-visual ul {
+    list-style: none;
+    font-size: 0.85rem;
 }
 
 /* Alertas */
@@ -340,10 +286,8 @@ h1, h2, h3, h4 {
     background: #F7D358;
     color: #002a52;
     padding: 12px 25px;
-    font-size: 0.85rem;
     font-weight: 600;
     border-radius: 5px;
-    letter-spacing: 1px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -354,18 +298,14 @@ h1, h2, h3, h4 {
     opacity: 1;
 }
 
-/* Footer */
 .boutique-footer {
     background-color: #002a52;
     color: #FFD700;
     text-align: center;
     padding: 2rem;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
     margin-top: 4rem;
 }
 
-/* WhatsApp Float */
 .whatsapp-float {
   position: fixed;
   width: 55px;
@@ -377,33 +317,10 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
   z-index: 100;
-  transition: transform 0.3s;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
 }
 
 .whatsapp-float img {
   width: 32px;
-  height: 32px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .navbar ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .boutique-form {
-        padding: 1.5rem;
-    }
 }
