@@ -1,106 +1,407 @@
-/* Reset básico */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* 1. RESET Y ESTILOS GLOBALES */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  background: #f9f9f9;
-  color: #333;
-  padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    /* Fondo con tu degradado original */
+    background: linear-gradient(to bottom, #75AADB, #FFD700);
+    background-attachment: fixed;
+    color: #333333;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
-/* Header */
-header {
-  text-align: center;
-  margin-bottom: 20px;
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
 }
 
-/* Layout principal */
-main {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+/* 2. BARRA DE ANUNCIOS (Dorado con texto azul) */
+.announcement-bar {
+    background-color: #F7D358;
+    color: #002a52;
+    text-align: center;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-/* Catálogo */
-.catalogo {
-  flex: 2;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+/* 3. ENCABEZADO (Azul Marino y Dorado) */
+.header {
+    background-color: #002a52;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.producto {
-  background: #fff;
-  border-radius: 8px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.producto img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin-bottom: 10px;
+.logo-link {
+    text-decoration: none;
+    text-align: center;
 }
 
-.producto h2 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
+.titulo h1 {
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin: 0;
+    color: #FFD700;
 }
 
-.producto p {
-  font-weight: bold;
-  margin-bottom: 10px;
+.titulo p {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    margin-top: 2px;
 }
 
-.producto button {
-  background: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
+/* 4. NAVEGACIÓN */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
 }
 
-.producto button:hover {
-  background: #555;
+.navbar a {
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 
-/* Carrito */
-.carrito {
-  flex: 1;
-  background: #fff;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.navbar a:hover {
+    color: #FFD700;
 }
 
-.carrito h2 {
-  margin-bottom: 10px;
+/* 5. CONTENIDO PRINCIPAL */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: #002a52;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* 6. GRID DE PRODUCTOS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.calidad {
+    font-size: 0.75rem;
+    color: #75AADB;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.precio-nuevo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #002a52;
+    margin-bottom: 15px;
+}
+
+/* 7. BOTONES (Celestes) */
+.btn-principal {
+    background-color: #75AADB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-principal:hover {
+    background-color: #4A90E2;
+}
+
+/* 8. CARRITO Y FORMULARIO (Cajas Blancas) */
+.carrito, .boutique-form {
+    background: #FFFFFF;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.carrito h2, .resumen-visual h3 {
+    color: #002a52;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.divisor {
+    height: 1px;
+    background-color: #EAEAEA;
+    margin: 20px 0;
+}
+
+#mensaje-vacio {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
 }
 
 .carrito ul {
-  list-style: none;
+    list-style: none;
 }
 
 .carrito li {
-  padding: 5px 0;
-  border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #EEE;
+    font-size: 0.9rem;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;
-  }
+.btn-control {
+    background: #75AADB;
+    color: #FFF;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 2px;
+}
 
-  .carrito {
-    order: -1; /* Carrito arriba en móviles */
-  }
+.btn-eliminar {
+    background: transparent;
+    border: none;
+    color: #d9534f;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+#total {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #002a52;
+    margin-top: 10px;
+}
+
+/* 9. FORMULARIO DE CONTACTO */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #75AADB;
+    border-radius: 5px;
+    background-color: #FAFAFA;
+    font-family: inherit;
+}
+
+.resumen-visual {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.resumen-visual ul {
+    list-style: none;
+    font-size: 0.85rem;
+}
+
+/* 10. ALERTAS */
+.alerta {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #F7D358;
+    color: #002a52;
+    padding: 12px 25px;
+    font-weight: 600;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 9999;
+}
+
+.alerta.mostrar {
+    opacity: 1;
+}
+
+/* 11. FOOTER Y WHATSAPP */
+.boutique-footer {
+    background-color: #002a52;
+    color: #FFD700;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+.whatsapp-float {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.whatsapp-float img {
+  width: 32px;
+}
+
+/* 12. RESPONSIVE ESTRICTO PARA MÓVILES */
+@media (max-width: 768px) {
+    /* Ajuste de barra superior */
+    .announcement-bar {
+        font-size: 0.65rem;
+        padding: 8px 5px;
+    }
+
+    /* Encabezado en columna */
+    .header {
+        padding: 1rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .titulo h1 {
+        font-size: 1.6rem;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Catálogo: Forzamos 1 zapato por fila para que no se vea apretado */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Reducimos espacios laterales en cajas blancas */
+    .carrito, .boutique-form {
+        padding: 1.5rem 1rem;
+        margin: 1rem 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Carrito: El nombre arriba y los botones abajo para evitar desbordes */
+    .carrito li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px 0;
+    }
+
+    .carrito li div {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #total {
+        font-size: 1.1rem;
+        text-align: center;
+    }
 }
