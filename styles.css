@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* Reset y Estilos Globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Tu degradado original con fixed para que no se deforme al bajar */
+    background: linear-gradient(to bottom, #75AADB, #FFD700);
+    background-attachment: fixed;
+    color: #333333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+/* Barra de Anuncios - Tus colores */
+.announcement-bar {
+    background-color: #F7D358; /* Amarillo/Dorado de tus alertas */
+    color: #002a52; /* Azul marino */
+    text-align: center;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Encabezado Boutique - Tus colores */
+.header {
+    background-color: #002a52; /* Azul marino original */
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-link {
+    text-decoration: none;
+    text-align: center;
+}
+
+.titulo h1 {
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin: 0;
+    color: #FFD700; /* Dorado */
+}
+
+.titulo p {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FFFFFF; /* Blanco */
+    margin-top: 2px;
+}
+
+/* Navegación */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #FFD700; /* Dorado al pasar el mouse */
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: #002a52; /* Contraste fuerte contra el fondo celeste */
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 5px rgba(255,255,255,0.5); /* Ayuda a la lectura */
+}
+
+.section-header p {
+    font-size: 1rem;
+    color: #000;
+    font-weight: 500;
+}
+
+/* Grid de Productos */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: #FFFFFF; /* Cajas blancas para que resalten sobre el degradado */
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.calidad {
+    font-size: 0.75rem;
+    color: #75AADB; /* Tu color original */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.precio-container {
+    margin-bottom: 15px;
+}
+
+.precio-nuevo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #002a52;
+}
+
+/* Botones con tus colores originales */
+.btn-principal {
+    background-color: #75AADB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-principal:hover {
+    background-color: #4A90E2;
+}
+
+/* Carrito y Formulario (Contenedores blancos limpios) */
+.carrito-container {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+}
+
+.carrito, .boutique-form {
+    background: #FFFFFF;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.carrito h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #002a52;
+}
+
+.divisor {
+    height: 1px;
+    background-color: #EAEAEA;
+    margin: 20px 0;
+}
+
+#mensaje-vacio {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+    margin: 20px 0;
+}
+
+.carrito ul {
+    list-style: none;
+}
+
+.carrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed #EEE;
+}
+
+.controles-carrito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-control {
+    background: #75AADB;
+    border: none;
+    color: #FFF;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-control:hover {
+    background: #4A90E2;
+}
+
+.btn-eliminar {
+    background: transparent;
+    border: none;
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+#total {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #002a52;
+}
+
+.nota-envio {
+    text-align: right;
+    font-size: 0.7rem;
+    color: #888;
+}
+
+/* Estilos de Formulario */
+.boutique-form {
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #75AADB;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    background-color: #FAFAFA;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #002a52;
+    background-color: #FFF;
+}
+
+.resumen-oculto {
+    display: none;
+}
+
+/* Alertas */
+.alerta {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #F7D358;
+    color: #002a52;
+    padding: 12px 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 9999;
+}
+
+.alerta.mostrar {
+    opacity: 1;
+}
+
+/* Footer */
+.boutique-footer {
+    background-color: #002a52;
+    color: #FFD700;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 4rem;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  z-index: 100;
+  transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .boutique-form {
+        padding: 1.5rem;
+    }
+}

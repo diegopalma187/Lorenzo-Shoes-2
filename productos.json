@@ -1,0 +1,30 @@
+[
+    {
+        "nombre": "Tenis Blanco Plataforma Casual",
+        "calidad": "Calidad Premium ✅",
+        "precio": 75900.00,
+        "imagen": "IMG/Puma 1.jpeg",
+        "stock": 5
+    },
+    {
+        "nombre": "Sandalia Beige Doble Tira Moda",
+        "calidad": "Calidad Original ✅",
+        "precio": 45900.00,
+        "imagen": "IMG/Puma 2.jpeg",
+        "stock": 3
+    },
+    {
+        "nombre": "Zapatilla Beige Stiletto Elegante",
+        "calidad": "Calidad Premium ✅",
+        "precio": 50900.00,
+        "imagen": "IMG/Puma 3.jpeg",
+        "stock": 8
+    },
+    {
+        "nombre": "Alpargata Plataforma Baja Yute",
+        "calidad": "Calidad Alta ✅",
+        "precio": 39900.00,
+        "imagen": "IMG/Puma 4.jpeg",
+        "stock": 2
+    }
+]
