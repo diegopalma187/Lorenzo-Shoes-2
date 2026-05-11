@@ -262,4 +262,146 @@ h1, h2, h3, h4 {
 
 /* 9. FORMULARIO DE CONTACTO */
 .form-group {
-    margin-bottom: 1
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #75AADB;
+    border-radius: 5px;
+    background-color: #FAFAFA;
+    font-family: inherit;
+}
+
+.resumen-visual {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.resumen-visual ul {
+    list-style: none;
+    font-size: 0.85rem;
+}
+
+/* 10. ALERTAS */
+.alerta {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #F7D358;
+    color: #002a52;
+    padding: 12px 25px;
+    font-weight: 600;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 9999;
+}
+
+.alerta.mostrar {
+    opacity: 1;
+}
+
+/* 11. FOOTER Y WHATSAPP */
+.boutique-footer {
+    background-color: #002a52;
+    color: #FFD700;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+.whatsapp-float {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.whatsapp-float img {
+  width: 32px;
+}
+
+/* 12. RESPONSIVE ESTRICTO PARA MÓVILES */
+@media (max-width: 768px) {
+    /* Ajuste de barra superior */
+    .announcement-bar {
+        font-size: 0.65rem;
+        padding: 8px 5px;
+    }
+
+    /* Encabezado en columna */
+    .header {
+        padding: 1rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .titulo h1 {
+        font-size: 1.6rem;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Catálogo: Forzamos 1 zapato por fila para que no se vea apretado */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Reducimos espacios laterales en cajas blancas */
+    .carrito, .boutique-form {
+        padding: 1.5rem 1rem;
+        margin: 1rem 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Carrito: El nombre arriba y los botones abajo para evitar desbordes */
+    .carrito li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px 0;
+    }
+
+    .carrito li div {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #total {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+}
