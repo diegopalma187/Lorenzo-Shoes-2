@@ -10,17 +10,20 @@ const mensajevacio = document.getElementById('mensaje-vacio');
 let sumaTotal = 0;
 let productosSeleccionados = JSON.parse(localStorage.getItem('carrito')) || {};
 
-// Cambio a formato de moneda Argentina (ARS)
+// Formato de moneda para Argentina (ARS)
 const formatearMoneda = (valor) => {
     return new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(valor);
 };
 
-Object.values(productosSeleccionados).forEach(item => {
-    sumaTotal += item.precio * item.cantidad;
-});
+// Cargar estado inicial
+function iniciar() {
+    Object.values(productosSeleccionados).forEach(item => {
+        sumaTotal += item.precio * item.cantidad;
+    });
+    actualizarListas();
+}
 
-actualizarListas();
-
+// Obtener productos
 fetch('productos.json')
   .then(res => res.json())
   .then(productos => {
@@ -31,9 +34,7 @@ fetch('productos.json')
         <img src="${p.imagen}" alt="${p.nombre}">
         <h3>${p.nombre}</h3>
         <p class="calidad">${p.calidad}</p>
-        <div class="precio-container">
-            <p class="precio-nuevo">${formatearMoneda(p.precio)}</p>
-        </div>
+        <p class="precio-nuevo">${formatearMoneda(p.precio)}</p>
         <button class="btn-principal btn-agregar">Añadir al carrito</button>
       `;
       contenedorProductos.appendChild(card);
@@ -46,7 +47,7 @@ fetch('productos.json')
         
         const cantActual = productosSeleccionados[p.nombre] ? productosSeleccionados[p.nombre].cantidad : 0;
         if(cantActual >= p.stock) {
-            mostrarAlerta("LÍMITE DE STOCK", "error");
+            mostrarAlerta("SIN STOCK", "error");
             return;
         }
 
@@ -71,7 +72,7 @@ function mostrarAlerta(mensaje, tipo = "ok") {
   setTimeout(() => alerta.classList.add('mostrar'), 100);
   setTimeout(() => {
     alerta.classList.remove('mostrar');
-    document.body.removeChild(alerta);
+    setTimeout(() => document.body.removeChild(alerta), 400);
   }, 2000);
 }
 
@@ -79,7 +80,6 @@ function actualizarListas() {
   listaCarrito.innerHTML = '';
   resumenProductos.innerHTML = '';
   let contador = 0;
-
   const productosNombres = Object.keys(productosSeleccionados);
 
   if (productosNombres.length === 0) {
@@ -91,111 +91,82 @@ function actualizarListas() {
   productosNombres.forEach((producto) => {
     const { precio, cantidad } = productosSeleccionados[producto];
     const subtotal = precio * cantidad;
+    contador += cantidad;
     
+    // Elemento para el carrito visual
     const item = document.createElement('li');
-    
-    const infoSpan = document.createElement('span');
-    infoSpan.textContent = `${producto} x${cantidad} — ${formatearMoneda(subtotal)}`;
-    
-    const controlesDiv = document.createElement('div');
-    controlesDiv.classList.add('controles-carrito');
-
-    const btnMas = document.createElement('button');
-    btnMas.textContent = '+';
-    btnMas.classList.add('btn-control');
-    btnMas.addEventListener('click', () => aumentarCantidad(producto));
-
-    const btnMenos = document.createElement('button');
-    btnMenos.textContent = '-';
-    btnMenos.classList.add('btn-control');
-    btnMenos.addEventListener('click', () => disminuirCantidad(producto));
-
-    const btnEliminar = document.createElement('button');
-    btnEliminar.textContent = 'Quitar';
-    btnEliminar.classList.add('btn-eliminar');
-    btnEliminar.addEventListener('click', () => eliminarProducto(producto));
-
-    controlesDiv.appendChild(btnMenos);
-    controlesDiv.appendChild(btnMas);
-    controlesDiv.appendChild(btnEliminar);
-
-    item.appendChild(infoSpan);
-    item.appendChild(controlesDiv);
-    
+    item.innerHTML = `
+        <span>${producto} x${cantidad} — ${formatearMoneda(subtotal)}</span>
+        <div>
+            <button class="btn-control" onclick="aumentarCantidad('${producto}')">+</button>
+            <button class="btn-control" onclick="disminuirCantidad('${producto}')">-</button>
+            <button class="btn-eliminar" onclick="eliminarProducto('${producto}')">Quitar</button>
+        </div>
+    `;
     listaCarrito.appendChild(item);
 
+    // Elemento para el resumen dentro del formulario
     const resumenItem = document.createElement('li');
-    resumenItem.textContent = `${producto} x${cantidad} - ${formatearMoneda(subtotal)}`;
+    resumenItem.textContent = `${producto} x${cantidad} — ${formatearMoneda(subtotal)}`;
     resumenProductos.appendChild(resumenItem);
   });
 
-  // Cambio a ARS en el Total
   total.textContent = `Total: ${formatearMoneda(sumaTotal)} ARS`;
   contadorCarrito.textContent = contador;
-
-  const listaProductos = productosNombres.map(
-    (producto) => {
-      const { precio, cantidad } = productosSeleccionados[producto];
-      return `${producto} x${cantidad} - ${formatearMoneda(precio * cantidad)}`;
-    }
-  );
-  productosHidden.value = listaProductos.join('\n');
-
+  
+  // Guardamos en el campo oculto para Formspree
+  productosHidden.value = productosNombres.map(p => `${p} (Cant: ${productosSeleccionados[p].cantidad})`).join('\n');
+  
   localStorage.setItem('carrito', JSON.stringify(productosSeleccionados));
 }
 
-function aumentarCantidad(producto) {
+// Funciones globales para los botones del carrito
+window.aumentarCantidad = (producto) => {
   productosSeleccionados[producto].cantidad += 1;
   sumaTotal += productosSeleccionados[producto].precio;
   actualizarListas();
-}
+};
 
-function disminuirCantidad(producto) {
+window.disminuirCantidad = (producto) => {
   if (productosSeleccionados[producto].cantidad > 1) {
     productosSeleccionados[producto].cantidad -= 1;
     sumaTotal -= productosSeleccionados[producto].precio;
   } else {
     eliminarProducto(producto);
-    return;
   }
   actualizarListas();
-}
+};
 
-function eliminarProducto(producto) {
+window.eliminarProducto = (producto) => {
   sumaTotal -= productosSeleccionados[producto].precio * productosSeleccionados[producto].cantidad;
   delete productosSeleccionados[producto];
   actualizarListas();
-}
+};
 
+// Manejo de Formspree con Fetch
 formulario.addEventListener('submit', async (e) => {
   e.preventDefault(); 
-  
   if(Object.keys(productosSeleccionados).length === 0) {
-      mostrarAlerta("TU CARRITO ESTÁ VACÍO", "error");
+      mostrarAlerta("EL CARRITO ESTÁ VACÍO", "error");
       return;
   }
-
-  const data = new FormData(formulario);
   
-  try {
-      const response = await fetch(formulario.action, {
-          method: formulario.method,
-          body: data,
-          headers: {
-              'Accept': 'application/json'
-          }
-      });
-      
-      if (response.ok) {
-          mostrarAlerta("PEDIDO ENVIADO CORRECTAMENTE");
-          formulario.reset();
-          productosSeleccionados = {}; 
-          sumaTotal = 0;
-          actualizarListas();
-      } else {
-          mostrarAlerta("ERROR AL ENVIAR", "error");
-      }
-  } catch (error) {
-      mostrarAlerta("ERROR DE CONEXIÓN", "error");
+  const response = await fetch(formulario.action, {
+      method: 'POST',
+      body: new FormData(formulario),
+      headers: { 'Accept': 'application/json' }
+  });
+  
+  if (response.ok) {
+      mostrarAlerta("PEDIDO ENVIADO CON ÉXITO");
+      formulario.reset();
+      productosSeleccionados = {};
+      sumaTotal = 0;
+      actualizarListas();
+      localStorage.removeItem('carrito');
+  } else {
+      mostrarAlerta("HUBO UN ERROR AL ENVIAR", "error");
   }
 });
+
+iniciar();
